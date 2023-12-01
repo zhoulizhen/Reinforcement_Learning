@@ -47,6 +47,7 @@ import numpy as np
 
 #初始化Q表,定义了每个状态下每个动作的价值
 Q = np.zeros((16, 4))
+print("Q表",Q)
 
 
 from IPython import display
@@ -126,6 +127,7 @@ def train():
 
             #随机抽一条数据
             state, action, reward, next_state, over = pool.sample()
+            # print("next_state",state,action, next_state)
 
             #Q矩阵当前估计的state下action的价值
             value = Q[state, action]
@@ -146,6 +148,8 @@ def train():
 
 
 train()
+
+print("Q表final",Q)
 
 print("play(True)[-1]是什么",play(True)[-1])
 
